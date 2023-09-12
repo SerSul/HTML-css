@@ -1,68 +1,110 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Моя HTML-страница</title>
     <link rel="icon" href="https://www.mirea.ru/upload/medialibrary/c1a/MIREA_Gerb_Colour.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Заголовок уровня h1</h1>
-    <h2>Заголовок уровня h2</h2>
-    <h3>Заголовок уровня h3</h3>
-
-    <p><strong>Вычмат</strong>, <em>Матлог</em>, <u>Информатика</u>, <sub>Дзержинский</sub>, <sup>Карпов</sup>, <cite>Волощук</cite>, <blockquote>Три всадника пересдач</blockquote><abbr title="Аббревиатура">что-то там</abbr>.</p>
-
-    <p>Г-н <a href="https://vk.com/id557139899">Гаррош Адский Крик</a>.</p>
-
-    <p>Пример ссылки на номер телефона: <a href="tel:+7 499 215 65-65">Позвоните нам, и вас больше никто не увидит</a></p>
-
-    <p>Пример ссылки на почтовый клиент: <a href="mailto:dzerzhinskij@mirea.ru">Напишите нам и вы никогда не сдадите вычмат</a></p>
-
-    <h2>Якори</h2>
-    <p>Перейти к <a href="#section1">заголовку</a> и <a href="#section2">подзаголовку</a></p>
-
-    <h2 id="section1">Упорядоченный список</h2>
-    <ol type="A" start="3">
-        <li>Элемент 3</li>
-        <li>Элемент 4</li>
-        <li>Элемент 5</li>
-    </ol>
-
-    <h2 id="section2">Вложенный список</h2>
-    <ol type="1">
-        <li>Первый элемент
+    <header>
+        <nav>
             <ul>
-                <li>Вложенный элемент 1</li>
-                <li>Вложенный элемент 2</li>
-                <li>Вложенный элемент 3</li>
+                <li><a href="#">Главная</a></li>
+                <li><a href="#">О нас</a></li>
+                <li><a href="#">Контакты</a></li>
             </ul>
-        </li>
-        <li>Второй элемент</li>
-        <li>Третий элемент</li>
-    </ol>
+        </nav>
+        <img src="https://avatars.mds.yandex.net/i?id=95b986910efbc95588d65fc18a69f3d48c6bd05d-8981391-images-thumbs&n=13" alt="Логотип сайта" class="logo">
+    </header>
 
-    <h2>Список описаний</h2>
-    <dl>
-        <dt>Термин 1</dt>
-        <dd>Описание 1</dd>
-        <dt>Термин 2</dt>
-        <dd>Описание 2 </dd>
-        <dt>Термин 3</dt>
-        <dd>Описание 3</dd>
-        <dt>Термин 4</dt>
-        <dd>Описание 4</dd>
-        <dt>Термин 5</dt>
-        <dd>Описание 5 </dd>
-    </dl>
+    <main>
+        <section>
+            <h1>Заголовок уровня h1</h1>
+            <h2>Заголовок уровня h2</h2>
+            <h3>Заголовок уровня h3</h3>
 
-    <h2>Изображения</h2>
-    <img src="https://i.imgur.com/e5dJ3Tc.jpeg" alt="Изображение" width="200" height="150">
-    <img src="http://postila.ru/data/e8/a0/91/37/e8a09137e49e4bd59c235bd9fe964497924d58a37577c8080039400633132e4d.jpg" alt="Карта с областями" usemap="#imagemap" width="300" height="200">
+            <p><strong>Вычмат</strong>, <em>Матлог</em>, <u>Информатика</u>, <sub>Дзержинский</sub>, <sup>Карпов</sup>, <cite>Волощук</cite>, <blockquote>Три всадника пересдач</blockquote><abbr title="Аббревиатура">что-то там</abbr>.</p>
 
-    <map name="imagemap">
-        <area shape="circle" coords="50,50,50" href="https://i.imgur.com/GYl0SSo.png"> 
-        <area shape="rect" coords="100,100,200,150" href="https://i.imgur.com/BG3paM9.png">
-        <area shape="poly" coords="250,100,300,50,350,100,325,150,275,150" href="https://i.ytimg.com/vi/NXjlw-_a61A/maxresdefault.jpg?7857057827">
-    </map>
+            <p>Г-н <a href="https://vk.com/id557139899">Гаррош Адский Крик</a>.</p>
+
+            <p>Пример ссылки на номер телефона: <a href="tel:+7 499 215 65-65">Позвоните нам, и вас больше никто не увидит</a></p>
+
+            <p>Пример ссылки на почтовый клиент: <a href="mailto:dzerzhinskij@mirea.ru">Напишите нам и вы никогда не сдадите вычмат</a></p>
+        </section>
+
+        <section>
+            <h2>Якори</h2>
+            <p>Перейти к <a href="#section1">заголовку</a> и <a href="#section2">подзаголовку</a></p>
+
+            <h2 id="section1">Упорядоченный список</h2>
+            <ol type="A" start="3">
+                <li>Элемент 3</li>
+                <li>Элемент 4</li>
+                <li>Элемент 5</li>
+            </ol>
+            
+            <section>
+                <h2>Секция 1</h2>
+                <article>
+                    <!-- Содержимое независимой секции 1 -->
+                </article>
+                <aside>
+                    <!-- Боковая панель для секции 1 -->
+                </aside>
+            </section>
+
+            <section>
+                <h2>Секция 2</h2>
+                <article>
+                    <!-- Содержимое независимой секции 2 -->
+                </article>
+                <aside>
+                    <!-- Боковая панель для секции 2 -->
+                </aside>
+            </section>
+
+            <h2>Список описаний</h2>
+            <dl>
+                <dt>Термин 1</dt>
+                <dd>Описание 1</dd>
+                <dt>Термин 2</dt>
+                <dd>Описание 2 </dd>
+                <dt>Термин 3</dt>
+                <dd>Описание 3</dd>
+                <dt>Термин 4</dt>
+                <dd>Описание 4</dd>
+                <dt>Термин 5</dt>
+                <dd>Описание 5 </dd>
+            </dl>
+        </section>
+
+        <section>
+            <h2>Изображения</h2>
+            <img src="https://i.imgur.com/e5dJ3Tc.jpeg" alt="Изображение" width="200" height="150">
+            <img src="http://postila.ru/data/e8/a0/91/37/e8a09137e49e4bd59c235bd9fe964497924d58a37577c8080039400633132e4d.jpg" alt="Карта с областями" usemap="#imagemap" width="300" height="200">
+
+            <map name="imagemap">
+                <area shape="circle" coords="50,50,50" href="https://i.imgur.com/GYl0SSo.png"> 
+                <area shape="rect" coords="100,100,200,150" href="https://i.imgur.com/BG3paM9.png">
+                <area shape="poly" coords="250,100,300,50,350,100,325,150,275,150" href="https://i.ytimg.com/vi/NXjlw-_a61A/maxresdefault.jpg?7857057827">
+            </map>
+        </section>
+    </main>
+
+    <aside>
+        <!-- Дополнительная боковая панель -->
+    </aside>
+
+    <footer>
+        <address>
+            Разработчик сайта: Ваше имя<br>
+            Электронная почта: ваша_почта@домен.com<br>
+            Телефон: +7 123 456-78-90
+        </address>
+    </footer>
 </body>
 </html>
