@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles3.css">
+</head>
+<body>
+    <header>
+        <div id="logo">Логотип</div>
+        <nav>
+            <ul>
+                <li><a href="#">Главная</a></li>
+                <li><a href="#">О нас</a></li>
+                <li><a href="#">Услуги</a></li>
+                <li><a href="#">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div id="content">
+        <div class="block">
+            <h1>Блок 1</h1>
+            <p>Содержимое блока 1...</p>
+        </div>
+        
+        <div class="block">
+            <h1>Блок 2</h1>
+            <p>Содержимое блока 2...</p>
+        </div>
+        
+        <div class="block">
+            <h1>Блок 3</h1>
+            <p>Содержимое блока 3...</p>
+        </div>
+        
+        <!-- Форма -->
+        <form method="post" action="process.php">
+            <fieldset>
+                <legend>Форма</legend>
+                <label for="name">Имя:</label>
+                <input type="text" id="name" name="name" placeholder="Введите ваше имя" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Введите ваш email" required>
+                
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" name="password" required>
+                
+                <label for="file">Файл:</label>
+                <input type="file" id="file" name="file">
+                
+                <label for="checkbox">Checkbox:</label>
+                <input type="checkbox" id="checkbox" name="checkbox" checked>
+                
+                <label for="radio">Radio:</label>
+                <input type="radio" id="radio" name="radio">
+                
+                <label for="submit">Submit:</label>
+                <input type="submit" id="submit" value="Отправить">
+                
+                <label for="datetime-local">Дата и время:</label>
+                <input type="datetime-local" id="datetime-local" name="datetime-local">
+            </fieldset>
+            
+            <button type="button">Кнопка 1</button>
+            <button type="button">Кнопка 2</button>
+            
+            <textarea cols="30" rows="5" maxlength="200" minlength="10" placeholder="Введите текст" required></textarea>
+            
+            <select multiple required size="3">
+                <option value="option1">Опция 1</option>
+                <option value="option2">Опция 2</option>
+                <option value="option3">Опция 3</option>
+            </select>
+        </form>
+        
+        <!-- Встроенная карта через iframe -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2253.9464019356423!2d37.61763501585595!3d55.7512446557043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b549b2c281a569%3A0x2220e41f9baa94ec!2z0JrQvtC80YHQutC40Lkg0L_RgNC40LXQvdCwLCA0MCwg0JzQvtGB0LrQstCwLCDQoNC-0LHQs9GA0L7QstGB0LrQsNGPINC-0LHQu9Cw0YHRgtGMLCAxMTQ0NjU!5e0!3m2!1sen!2sru!4v1632720853298!5m2!1sen!2sru" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        
+        <!-- Встроенное видео через iframe -->
+        <iframe width="2275" height="1012" src="https://www.youtube.com/embed/YkCNxmj3Bfk" title="Лютый препод МИРЭА уничтожил орка-либерала" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>    </div>
+</body>
+</html>
