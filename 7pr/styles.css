@@ -1,0 +1,464 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Signika', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #111;
+    margin: 0;
+
+    font-family: 'Signika', sans-serif;
+    color: #fff;
+}
+
+
+.container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: auto;
+    width: 50%;
+    margin-left: -25%;
+}
+
+.container .box{
+    position: relative;
+    width: 320px;
+    height: auto;
+    color: #fff;
+    background: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 30px;
+    transition: 0.5s;
+}
+
+.container .box:hover{
+    transform: translateY(-20px);
+}
+
+.container .box::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #ffbc00, #ff0058);
+}
+
+.container .box::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #ffbc00, #ff0058);
+    filter: blur(30px);
+}
+.container .box:nth-child(2)::before,
+.container .box:nth-child(2)::after{
+    background: linear-gradient(315deg, #03a9f4, #ff0058);
+}
+
+.container .box:nth-child(3)::before,
+.container .box:nth-child(3)::after{
+    background: linear-gradient(315deg, #4dff03, #00d0ff);
+}
+
+.container .box span{
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+    background: rgba(0,0,0,0.6);
+    z-index: 2;
+}
+
+.container .box span::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: rgba(255,255,255,0.1);
+    pointer-events: none;
+}
+
+.container .box .content{
+    position: relative;
+    z-index: 10;
+    padding: 20px 40px;
+}
+
+.container .box .content h2{
+    font-size: 2em;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.container .box .content p{
+    font-size: 1.1em;
+    color: #fff;
+    margin-bottom: 10px;
+    line-height: 1.4em;
+}
+
+.container .box .content a{
+    display: inline-block;
+    font-size: 1.1em;
+    color: #111;
+    background: rgba(255,255,255,0.1);
+    padding: 10px;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+/*4 задание*/
+.container .box.box2 {
+    background: #333;
+    transition: transform 0.3s, filter 0.3s;
+    transform: translateY(0);
+    filter: brightness(1);
+}
+
+.container .box.box2:hover {
+    transform: translateY(-20px);
+    filter: brightness(0.7);
+}
+
+.container .box.box2 span {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.container .box.box2 h2 {
+    color: #fff;
+    font-size: 1.5em;
+}
+
+.container .box.box2 p {
+    color: #fff;
+    font-size: 1.1em;
+    line-height: 1.4em;
+    margin-bottom: 10px;
+}
+
+.container .box.box2 a {
+    display: inline-block;
+    font-size: 1.1em;
+    color: #111;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+/*5 задание*/
+
+
+
+
+
+
+
+
+.button-container {
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    bottom: 5%; /* Расстояние от нижнего края страницы */
+    right: 10px; /* Расстояние от правого края страницы */
+  }
+  
+  .glass-btn {
+    width: 100px;
+    height: 100px;
+    background-color: #fafafa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+    margin-left: 1em;
+    margin-right: 1em;  
+    cursor: pointer;
+    transition: all 0.3s;
+  
+    &.blue-btn {
+        
+        box-shadow: 0px 20px 20px -17px rgba(0, 111, 255, 0.53);
+      
+        &:hover {
+          box-shadow: 0px 20px 35px -16px rgba(0, 111, 255, 0.65);
+          background: linear-gradient(to bottom, rgba(0, 111, 255, 0), rgba(0, 111, 255, 0.65));
+        }
+      }
+      
+
+      &.red-btn {
+        box-shadow: 0px 20px 20px -17px rgba(255, 16, 39, 0.5);
+      
+        &:hover {
+          box-shadow: 0px 20px 35px -16px rgba(255, 16, 39, 0.57);
+          background: linear-gradient(to bottom, rgba(255, 16, 39, 0), rgba(255, 16, 39, 0.57));
+        }
+      }
+      
+    &:hover {
+      background-color: darken(#fafafa, 2%);    
+      transform: translateY(-5px);
+      transition: all 0.3s;
+    }
+  }
+  
+
+  .box3:hover {
+    animation: animate 8s linear infinite;
+    filter: brightness(1.2); 
+  }
+  
+  @keyframes animate {
+    0% {
+      background-position: 0%;
+    }
+    100% {
+      background-position: 400%;
+    }
+  }
+  
+  .box3:before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    z-index: -1;
+    background: linear-gradient(45deg, #f15523, #ef3224, #7c3697);
+    background-size: 400%;
+    border-radius: 40px;
+    opacity: 0;
+    transition: 0.5s; /* Исправленное время перехода */
+  }
+  
+  .box3:hover:before {
+    filter: blur(20px);
+    opacity: 1;
+    animation: animate 8s linear infinite;
+  }
+  
+
+
+
+
+.containerL {
+    background: linear-gradient(to bottom, rgba(0, 111, 255, 0), red);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    top: 10%;
+    right: 10%;
+}
+
+.panel {
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+form {
+    background: transparent;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group-addon {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+}
+
+.input-group-addon .glyphicon {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.form-control {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.login-button {
+    background: linear-gradient(to right, #007bff, #00ff00);
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.login-button:hover {
+    background: linear-gradient(to right, #00ff00, #007bff);
+}
+
+.square {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    position: absolute;
+    top: calc(50% - 25px);
+    left: calc(50% - 25px);
+    border-radius: 10px;
+    animation: moveSquare 10s linear infinite, changeSize 10s linear infinite; /* Увеличиваем продолжительность анимации */
+}
+
+.square1 {
+    background: rgba(255, 0, 0, 0.3);
+    animation: moveSquare1 10s linear infinite, changeSize 10s linear infinite; /* Увеличиваем продолжительность анимации */
+}
+
+.square2 {
+    background: rgba(0, 255, 0, 0.3);
+    animation: moveSquare2 10s linear infinite, changeSize 10s linear infinite; /* Увеличиваем продолжительность анимации */
+}
+
+.square3 {
+    background: rgba(0, 0, 255, 0.3);
+    animation: moveSquare3 10s linear infinite, changeSize 10s linear infinite; /* Увеличиваем продолжительность анимации */
+}
+
+@keyframes moveSquare {
+    0% {
+        top: calc(50% - 25px);
+        left: calc(50% - 25px);
+    }
+    25% {
+        top: 10%;
+        left: 70%;
+    }
+    50% {
+        top: 50%;
+        left: 90%;
+    }
+    75% {
+        top: 90%;
+        left: 30%;
+    }
+    100% {
+        top: calc(50% - 25px);
+        left: calc(50% - 25px);
+    }
+}
+
+@keyframes moveSquare1 {
+    0% {
+        top: 30%;
+        left: 10%;
+    }
+    25% {
+        top: 70%;
+        left: 90%;
+    }
+    50% {
+        top: 10%;
+        left: 50%;
+    }
+    75% {
+        top: 50%;
+        left: 10%;
+    }
+    100% {
+        top: 30%;
+        left: 10%;
+    }
+}
+
+@keyframes moveSquare2 {
+    0% {
+        top: 80%;
+        left: 30%;
+    }
+    25% {
+        top: 20%;
+        left: 10%;
+    }
+    50% {
+        top: 60%;
+        left: 70%;
+    }
+    75% {
+        top: 20%;
+        left: 90%;
+    }
+    100% {
+        top: 80%;
+        left: 30%;
+    }
+}
+
+@keyframes moveSquare3 {
+    0% {
+        top: 10%;
+        left: 50%;
+    }
+    25% {
+        top: 90%;
+        left: 70%;
+    }
+    50% {
+        top: 30%;
+        left: 90%;
+    }
+    75% {
+        top: 70%;
+        left: 10%;
+    }
+    100% {
+        top: 10%;
+        left: 50%;
+    }
+}
+
+@keyframes changeSize {
+    0% {
+        width: 50px;
+        height: 50px;
+    }
+    50% {
+        width: 60px;
+        height: 60px;
+    }
+    100% {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+.square, .square1, .square2, .square3 {
+    pointer-events: none; 
+}
