@@ -1,0 +1,134 @@
+:root {
+    --grid-gap: 10px;
+    --form-max-width: 700px;
+    --button-focus-scale: 1.05;
+    --footer-hover-scale: 1.1;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.grid-container {
+    display: grid;
+    grid-gap: var(--grid-gap);
+}
+
+.grid-item {
+    background-color: #3498db;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 24px;
+    transition: transform 0.3s ease;
+}
+
+.grid-item:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.form-container {
+    margin-left: 50px;
+    max-width: var(--form-max-width);
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    text-align: center;
+
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    transform: scale(var(--button-focus-scale));
+}
+
+button {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+button:hover {
+    transform: scale(var(--button-focus-scale));
+}
+
+.footer {
+    margin-left: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    background-color: #3498db;
+    color: white;
+    position: relative;
+}
+
+.footer-content {
+    
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.footer:hover .footer-content {
+    transform: scale(var(--footer-hover-scale));
+}
+
+.footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #3498db;
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    transition: transform 0.3s ease;
+    z-index: 0;
+}
+
+.footer:hover::before {
+    transform: scaleX(1);
+}
+
+@media (min-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
