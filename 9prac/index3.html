@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Нравится</title>
+    <style>
+        .like-button {
+            background-color: #3498db;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button class="like-button" onclick="changeColor(this)">Нравится</button>
+
+    <script>
+        var liked = false;
+
+        function changeColor(button) {
+            liked = !liked;
+            if (liked) {
+                button.style.backgroundColor = '#e74c3c';
+            } else {
+                button.style.backgroundColor = '#3498db';
+            }
+        }
+    </script>
+</body>
+</html>

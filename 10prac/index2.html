@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Корзина</title>
+</head>
+<body>
+    <div id="accumulatorContainer">
+        <p>Текущее значение: <span id="currentValue">0</span></p>
+        <button onclick="accumulator.readValue()">Добавить значение</button>
+    </div>
+
+    <script>
+        function Accumulator(startingValue) {
+            this.value = startingValue;
+
+            this.readValue = function () {
+                var userInput = prompt('Введите число:');
+                var number = parseFloat(userInput);
+                if (!isNaN(number)) {
+                    this.value += number;
+                    document.getElementById("currentValue").textContent = this.value;
+                } else {
+                    alert('Некорректный ввод. Введите число.');
+                }
+            };
+        }
+
+        var accumulator = new Accumulator(0);
+    </script>
+</body>
+</html>

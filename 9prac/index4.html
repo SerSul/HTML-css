@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Рисование</title>
+    <style>
+        .drawing {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background-color: black;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var drawing = false;
+        
+        document.addEventListener('mousedown', startDrawing);
+        document.addEventListener('mousemove', draw);
+        document.addEventListener('mouseup', stopDrawing);
+
+        function startDrawing() {
+            drawing = true;
+        }
+
+        function draw(event) {
+            if (drawing) {
+                var dot = document.createElement('div');
+                dot.className = 'drawing';
+                dot.style.left = (event.clientX - 2.5) + 'px';
+                dot.style.top = (event.clientY - 2.5) + 'px';
+                document.body.appendChild(dot);
+            }
+        }
+
+        function stopDrawing() {
+            drawing = false;
+        }
+    </script>
+</body>
+</html>

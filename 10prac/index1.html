@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Капча через картинку</title>
+    <style>
+        #captchaImage {
+            font-size: 20px;
+            font-weight: bold;
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px;
+            border: 2px solid #257ab3;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="captchaImage" onclick="generateCaptcha()">Нажмите, чтобы обновить капчу</div>
+    <input type="text" id="captchaInput" placeholder="Введите символы с картинки">
+    <button onclick="checkCaptcha()">Проверить</button>
+    <p id="captchaResult"></p>
+
+    <script>
+        function generateCaptcha() {
+            var captchaText = generateRandomLetters();
+            var captchaImage = document.getElementById("captchaImage");
+            captchaImage.textContent = captchaText;
+        }
+
+        function generateRandomLetters() {
+            var letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+            var captcha = '';
+            for (var i = 0; i < 6; i++) {
+                var randomIndex = Math.floor(Math.random() * letters.length);
+                captcha += letters.charAt(randomIndex);
+            }
+            return captcha;
+        }
+
+        function checkCaptcha() {
+            var userInput = document.getElementById("captchaInput").value;
+            var captchaImage = document.getElementById("captchaImage");
+            var captchaText = captchaImage.textContent;
+
+            if (userInput === captchaText) {
+                document.getElementById("captchaResult").textContent = "Капча пройдена!";
+            } else {
+                document.getElementById("captchaResult").textContent = "Ошибка. Попробуйте ещё раз.";
+                generateCaptcha();
+            }
+        }
+
+        generateCaptcha();
+    </script>
+</body>
+</html>
