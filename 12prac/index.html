@@ -1,90 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <title>Задание на HTML, CSS и JavaScript</title>
   <style>
     .notification {
-      background: #f8d7da;
-      color: #721c24;
-      padding: 10px;
-      margin: 10px;
-      border: 1px solid #f5c6cb;
-      border-radius: 5px;
+      position: fixed;
+      top: 0;
+      right: 0;
+      background-color: #555;
+      color: white;
+      padding: 15px;
+      z-index: 1;
     }
-    #centered-container {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
+
   </style>
 </head>
 <body>
-
-<div id="notifications"></div>
-
-<button onclick="stopNotifications()">Остановить уведомления на 10 секунд</button>
-
-<ul id="list"></ul>
-
-<script>
-  function showNotification(options) {
-    const notification = document.createElement('div');
-    notification.classList.add('notification');
-    notification.textContent = options.content;
-
-    document.getElementById('notifications').appendChild(notification);
-
-    setTimeout(() => {
-      notification.remove();
-    }, 1500);
-  }
-
-  function stopNotifications() {
-    setTimeout(() => {
-      alert('Счетчик уведомлений возобновлен!');
-    }, 10000);
-  }
-
-  function createList() {
-    const list = document.getElementById('list');
-    
-    while (true) {
-      const itemContent = prompt('Введите содержимое пункта списка:');
-      if (!itemContent) {
-        break;
-      }
-
-      const listItem = document.createElement('li');
-      listItem.innerHTML = itemContent;
-      list.appendChild(listItem);
-    }
-  }
-
-  function positionImage(event) {
-    const img = document.getElementById('centered-image');
-    const x = event.clientX;
-    const y = event.clientY;
-
-    img.style.left = x + 'px';
-    img.style.top = y + 'px';
-
-    console.log(`Координаты клика: x=${x}, y=${y}`);
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    setInterval(() => {
-      showNotification({ content: 'Новое уведомление' });
+  <div class="notification"></div>
+  <button id="notificationButton">Уведомления</button>
+  <ul id="list"></ul>
+  <script>
+    // Задание 1
+    const notificationElement = document.querySelector('.notification');
+    let notificationCount = 0;
+    const notificationInterval = setInterval(() => {
+      notificationCount++;
+      notificationElement.innerHTML = `Уведомление ${notificationCount} `;
     }, 3000);
 
-    document.getElementById('centered-container').addEventListener('click', positionImage);
-  });
-</script>
+    // Задание 2
+    const notificationButton = document.querySelector('#notificationButton');
+    notificationButton.addEventListener('click', () => {
+      notificationCount = 0;
+      notificationElement.innerHTML = '';
+      notificationButton.disabled = true;
+      clearInterval(notificationInterval); 
+      setTimeout(() => {
+        notificationButton.disabled = false;
+        notificationInterval = setInterval(() => {
+          notificationCount++;
+          notificationElement.innerHTML = `Уведомление ${notificationCount} `;
+        }, 3000);
+      }, 10000);
+    });
 
-<div id="centered-container">
-  <img id="centered-image" src="path/to/your/image.png" alt="Centered Image" style="position: absolute;">
-</div>
+    // Задание 3
+    const listElement = document.querySelector('#list');
+    while (true) {
+      const item = prompt('Введите пункт списка', '');
+      if (!item) break;
+      const li = document.createElement('li');
+      li.textContent = item;
+      listElement.appendChild(li);
+    }
 
+    // Задание 4
+    function showNotification(options) {
+      const notification = document.createElement('div');
+      notification.classList.add('notification');
+      notification.textContent = options.text;
+      document.body.appendChild(notification);
+      setTimeout(() => {
+        notification.remove();
+      }, 1500);
+    }
+
+    // Задание 5
+    const image = document.createElement('img');
+    image.src = '../cent.jpg';
+    image.style.position = 'absolute';
+    image.style.left = '50%';
+    image.style.top = '50%';
+    image.style.transform = 'translate(-50%, -50%)';
+    document.body.appendChild(image);
+
+    document.addEventListener('click', (event) => {
+      console.log(`Координаты клика: (${event.clientX}, ${event.clientY})`);
+    });
+  </script>
 </body>
 </html>
