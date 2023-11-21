@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .notification {
+      background: #f8d7da;
+      color: #721c24;
+      padding: 10px;
+      margin: 10px;
+      border: 1px solid #f5c6cb;
+      border-radius: 5px;
+    }
+    #centered-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+<body>
+
+<div id="notifications"></div>
+
+<button onclick="stopNotifications()">Остановить уведомления на 10 секунд</button>
+
+<ul id="list"></ul>
+
+<script>
+  function showNotification(options) {
+    const notification = document.createElement('div');
+    notification.classList.add('notification');
+    notification.textContent = options.content;
+
+    document.getElementById('notifications').appendChild(notification);
+
+    setTimeout(() => {
+      notification.remove();
+    }, 1500);
+  }
+
+  function stopNotifications() {
+    setTimeout(() => {
+      alert('Счетчик уведомлений возобновлен!');
+    }, 10000);
+  }
+
+  function createList() {
+    const list = document.getElementById('list');
+    
+    while (true) {
+      const itemContent = prompt('Введите содержимое пункта списка:');
+      if (!itemContent) {
+        break;
+      }
+
+      const listItem = document.createElement('li');
+      listItem.innerHTML = itemContent;
+      list.appendChild(listItem);
+    }
+  }
+
+  function positionImage(event) {
+    const img = document.getElementById('centered-image');
+    const x = event.clientX;
+    const y = event.clientY;
+
+    img.style.left = x + 'px';
+    img.style.top = y + 'px';
+
+    console.log(`Координаты клика: x=${x}, y=${y}`);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    setInterval(() => {
+      showNotification({ content: 'Новое уведомление' });
+    }, 3000);
+
+    document.getElementById('centered-container').addEventListener('click', positionImage);
+  });
+</script>
+
+<div id="centered-container">
+  <img id="centered-image" src="path/to/your/image.png" alt="Centered Image" style="position: absolute;">
+</div>
+
+</body>
+</html>

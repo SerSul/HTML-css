@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        #items {
+            margin-top: 20px;
+        }
+
+        .item {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="addItem()">Добавить товар</button>
+    <button onclick="clearItems()">Очистить корзину</button>
+    <button onclick="sortItemsDescending()">Сортировка по убыванию</button>
+    <div id="items"></div>
+
+    <script>
+        var items = [
+            { name: "Товар 1", quantity: 1, price: 100 },
+            { name: "Товар 2", quantity: 1, price: 200 },
+            { name: "Товар 3", quantity: 1, price: 300 }
+        ];
+
+        function displayItems() {
+            var itemsDiv = document.getElementById("items");
+            itemsDiv.innerHTML = "";
+            for (var i = 0; i < items.length; i++) {
+                itemsDiv.innerHTML += "<div class='item'>" + items[i].name + " - Количество: " + items[i].quantity +
+                    " - Цена: " + (items[i].quantity * items[i].price) +
+                    " <button onclick='increaseQuantity(" + i + ")'>Увеличить количество</button>" +
+                    " <button onclick='removeItem(" + i + ")'>Удалить</button>" +
+                    " <button onclick='removeItemByIcon(" + i + ")'>Удалить (иконка корзины)</button></div>";
+            }
+        }
+
+        function addItem() {
+            var item = { name: "Товар " + (items.length + 1), quantity: 1, price: 100 * (items.length + 1) };
+            items.push(item);
+            displayItems();
+        }
+
+        function removeItem(index) {
+            items.splice(index, 1);
+            displayItems();
+        }
+
+        function removeItemByIcon(index) {
+            items.splice(index, 1);
+            displayItems();
+        }
+
+        function increaseQuantity(index) {
+            items[index].quantity++;
+            displayItems();
+            calculateTotal();
+        }
+
+        function calculateTotal() {
+            var total = 0;
+            for (var i = 0; i < items.length; i++) {
+                total += items[i].quantity * items[i].price;
+            }
+            console.log("Итоговая стоимость: " + total);
+        }
+
+        function clearItems() {
+            items = [];
+            displayItems();
+        }
+
+        function filterItemsByRange(min, max) {
+            var filteredItems = items.filter(item => item.price >= min && item.price <= max);
+            console.log("Отфильтрованные товары:", filteredItems);
+            return filteredItems;
+        }
+
+        function sortItemsDescending() {
+            items.sort((a, b) => b.price - a.price);
+            displayItems();
+        }
+
+        displayItems();
+    </script>
+</body>
+
+</html>
