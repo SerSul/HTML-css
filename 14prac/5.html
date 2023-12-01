@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .product {
+      width: 100px;
+      height: 100px;
+      background-color: lightblue;
+      margin: 10px;
+      cursor: move;
+      user-select: none;
+    }
+
+    .cart {
+      width: 200px;
+      height: 200px;
+      background-color: lightgreen;
+      margin-top: 20px;
+      padding: 10px;
+    }
+  </style>
+  <title>УФФФФФААААААААААААААААА</title>
+</head>
+<body>
+
+<div class="product" draggable="true" data-price="20">ДОПУСК</div>
+<div class="product" draggable="true" data-price="30">ЗАЧЕТ</div>
+<div class="product" draggable="true" data-price="40">АВТОМАТ</div>
+
+<div class="cart" id="cart" droppable="true">
+  <h2>СЕССИЯ</h2>
+  <p>ДЕНЬГИ <span id="totalPrice">0</span></p>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const products = document.querySelectorAll('.product');
+    const cart = document.getElementById('cart');
+    const totalPriceElement = document.getElementById('totalPrice');
+
+    let totalPrice = 0;
+
+    products.forEach(product => {
+      product.addEventListener('dragstart', function (event) {
+        event.dataTransfer.setData('text/plain', product.dataset.price);
+      });
+    });
+
+    cart.addEventListener('dragover', function (event) {
+      event.preventDefault();
+    });
+
+    cart.addEventListener('drop', function (event) {
+      event.preventDefault();
+
+      const price = parseFloat(event.dataTransfer.getData('text/plain'));
+      totalPrice += price;
+
+      totalPriceElement.textContent = totalPrice.toFixed(2);
+    });
+  });
+</script>
+
+</body>
+</html>

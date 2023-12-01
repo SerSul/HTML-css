@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Уведомления с кнопкой закрытия</title>
+    <style>
+        #notification-container {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            max-width: 300px;
+        }
+
+        .notification {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div id="notification-container"></div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const notificationContainer = document.getElementById('notification-container');
+        let notificationCount = 3; 
+        function createNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.innerHTML = `
+                <span>${message}</span>
+                <span class="close-btn">&times;</span>
+            `;
+            notificationContainer.appendChild(notification);
+        }
+
+        // Обработчик события для кнопки закрытия
+        notificationContainer.addEventListener('click', function (event) {
+            if (event.target.classList.contains('close-btn')) {
+                const notification = event.target.closest('.notification');
+                if (notification) {
+                    notification.remove();
+                }
+            }
+        });
+
+
+        const notificationInterval = setInterval(() => {
+            notificationCount++;
+            createNotification(`Уведомление ${notificationCount}`);
+        }, 500);
+        
+
+        createNotification('Уведомление 1');
+        createNotification('Уведомление 2');
+        createNotification('Уведомление 3');
+    });
+</script>
+
+</body>
+</html>

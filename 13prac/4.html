@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Динамическое обновление при прокрутке</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 200vh; 
+        }
+
+        #dynamic-content {
+            padding: 50px;
+            background-color: #f0f0f0;
+            text-align: center;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="dynamic-content">
+    <p>Содержимое страницы</p>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const dynamicContent = document.getElementById('dynamic-content');
+
+        function updateContentOnScroll() {
+            const scrollPosition = window.scrollY;
+
+            dynamicContent.innerHTML = `бла-бла-бла позиция: ${scrollPosition}`;
+        }
+
+        window.addEventListener('scroll', updateContentOnScroll);
+    });
+</script>
+
+</body>
+</html>

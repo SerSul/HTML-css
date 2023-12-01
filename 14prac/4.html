@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .slider-container {
+      width: 300px;
+      margin: 50px auto;
+      text-align: center;
+    }
+
+    #mySlider {
+      width: 100%;
+    }
+
+    #sliderValue {
+      display: block;
+      margin-top: 10px;
+    }
+  </style>
+  <title>Slider</title>
+</head>
+<body>
+
+<div class="slider-container">
+  <input type="range" id="mySlider" min="0" max="100" value="50" step="1">
+  <span id="sliderValue">50</span>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const slider = document.getElementById('mySlider');
+    const sliderValue = document.getElementById('sliderValue');
+
+    slider.addEventListener('input', function () {
+      sliderValue.textContent = slider.value;
+    });
+
+
+  });
+</script>
+
+</body>
+</html>

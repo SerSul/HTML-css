@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Эффект параллакса</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 150vh; 
+            overflow-x: hidden; 
+        }
+
+        #parallax-container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            background-image: url('/5pr/dz.png'); 
+            background-size: cover;
+            background-attachment: fixed;
+            color: #fff;
+            text-align: center;
+        }
+
+        #parallax-content {
+            padding: 50px;
+            background-color: rgba(0, 0, 0, 0.5); 
+        }
+    </style>
+</head>
+<body>
+
+<div id="parallax-container">
+    <div id="parallax-content">
+        <p>Многие страдали от этого босса 2го семестра, не многие смогли выжить </p>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const parallaxContainer = document.getElementById('parallax-container');
+
+        function handleScroll() {
+            const scrollTop = window.scrollY;
+            const parallaxValue = scrollTop / 2; 
+
+            parallaxContainer.style.backgroundPositionY = `-${parallaxValue}px`;
+            parallaxContainer.querySelector('#parallax-content').style.transform = `translateY(${parallaxValue}px)`;
+        }
+
+ 
+        window.addEventListener('scroll', handleScroll);
+    });
+</script>
+
+</body>
+</html>

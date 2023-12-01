@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    #animatedDiv {
+      width: 100px;
+      height: 100px;
+      background-color: lightblue;
+      margin: 20px;
+      transition: background-color 0.5s ease;
+    }
+
+    #moveDiv {
+      width: 100px;
+      height: 100px;
+      background-color: lightcoral;
+      margin: 20px;
+      transition: margin-left 0.5s ease;
+    }
+  </style>
+  <title>JavaScript Animations</title>
+</head>
+<body>
+
+<div id="animatedDiv" onclick="changeColor()">нажми</div>
+<div id="moveDiv" onclick="moveElement()">нажми</div>
+
+<script>
+  function changeColor() {
+    const animatedDiv = document.getElementById('animatedDiv');
+    const randomColor = '#' + Math.floor(Math.random()*522322342).toString(16);
+    animatedDiv.style.backgroundColor = randomColor;
+  }
+
+  function moveElement() {
+    const moveDiv = document.getElementById('moveDiv');
+    const currentPosition = parseInt(window.getComputedStyle(moveDiv).marginLeft);
+    const newPosition = currentPosition + 25;
+    moveDiv.style.marginLeft = newPosition + 'px';
+  }
+</script>
+
+</body>
+</html>

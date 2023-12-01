@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .selected {
+            background-color: #aee4ff; 
+        }
+
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            user-select: none;
+        }
+
+        li {
+            cursor: pointer;
+        }
+    </style>
+    <title>Выделение элементов списка</title>
+</head>
+<body>
+
+<ul id="myList">
+    <li>Элемент 1</li>
+    <li>Элемент 2</li>
+    <li>Элемент 3</li>
+
+</ul>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const list = document.getElementById('myList');
+        const items = list.getElementsByTagName('li');
+
+        list.addEventListener('click', function (event) {
+            const clickedItem = event.target;
+
+            if (event.ctrlKey || event.metaKey) {
+
+                clickedItem.classList.toggle('selected');
+            } else {
+
+                for (const item of items) {
+                    if (item === clickedItem) {
+                        item.classList.add('selected');
+                    } else {
+                        item.classList.remove('selected');
+                    }
+                }
+            }
+
+
+            event.preventDefault();
+        });
+    });
+</script>
+
+</body>
+</html>

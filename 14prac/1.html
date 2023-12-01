@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вопрос при клике на ссылку</title>
+</head>
+<body>
+
+<div id="contents">
+    <p>Содержимое страницы</p>
+    <a href="https://www.youtube.com/watch?v=xm3YgoEiEDc">Ссылка 1</a>
+    <div>
+        <a href="https://www.youtube.com/watch?v=LeT-c_AY68I">Ссылка 2 <i>(вложенная)</i></a>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const contentsContainer = document.getElementById('contents');
+
+        contentsContainer.addEventListener('click', function (event) {
+            const targetElement = event.target;
+
+            const isLink = targetElement.tagName === 'A' || targetElement.closest('a');
+
+            if (isLink) {
+  
+                const confirmLeave = confirm('Не стоит совершать ошибок...');
+
+
+                if (!confirmLeave) {
+                    event.preventDefault();
+                }
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

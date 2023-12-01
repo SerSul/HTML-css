@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    #mainImage {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .thumbnail {
+      width: 100px;
+      height: auto;
+      cursor: pointer;
+      margin-right: 5px;
+    }
+  </style>
+  <title>Image Gallery</title>
+</head>
+<body>
+
+<img id="mainImage" src="/cent.jpg" alt="Main Image">
+
+<div>
+  <img class="thumbnail" src="/cent.jpg" alt="Thumbnail 1">
+  <img class="thumbnail" src="/5pr/dz.png" alt="Thumbnail 2">
+  <img class="thumbnail" src="/photo1.png" alt="Thumbnail 3">
+</div>
+
+<script>
+  const mainImage = document.getElementById('mainImage');
+  const thumbnails = document.querySelectorAll('.thumbnail');
+
+  thumbnails.forEach(thumbnail => {
+    thumbnail.addEventListener('click', function() {
+      mainImage.src = thumbnail.src;
+      mainImage.alt = thumbnail.alt;
+    });
+  });
+</script>
+
+</body>
+</html>
